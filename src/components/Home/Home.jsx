@@ -12,14 +12,14 @@ const Home = () => {
         <div className="container">
           <div className="image">
             <img
-              src="https://media.istockphoto.com/id/1229712361/vector/missing-person-rubber-stamp-red-missing-person-rubber-grunge-stamp-seal-vector-illustration.jpg?s=612x612&w=0&k=20&c=oftRKEhTGICwsx1c6uvMzYdl8W5cqiW2h-VgaGK7WY4="
+            src=""
               alt=""
             />
           </div>
           <div className="text">
             <h2>Find your Loving One's and report the missing Person.</h2>
             <p>
-              This portol is open 24 hour's. You can submit your report anytime.
+              This portal is open 24 hour's. You can submit your report anytime.
             </p>
             <a href="#box">
               <button>
