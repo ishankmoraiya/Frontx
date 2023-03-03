@@ -12,6 +12,7 @@ import { CgSearchFound, CgNotes } from "react-icons/cg";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiEdit2, FiLogOut } from "react-icons/fi";
 import ReportMenu from "./ReportMenu";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [show, setShow] = useState(false);
@@ -21,25 +22,28 @@ const UserProfile = () => {
     <>
       <div className="p">
         <div className="sidebar">
-          <div className="upper">Finder</div>
+          <div className="upper">FiNDER</div>
           <div className="lower">
             <div
               onClick={() => setDisplay(0)}
               className={dispaly === 0 ? "active" : ""}
             >
-              <MdOutlineDashboard /> Dashboard
-            </div>
-            <div
-            onClick={() => setDisplay(1)}
-            className={dispaly === 1 ? "active" : ""}
-            >
               <CgNotes /> Submit Report
             </div>
             <div
-              // onClick={() => setDisplay(1)}
-              // className={dispaly === 1 ? "active" : ""}
+              onClick={() => setDisplay(1)}
+              className={dispaly === 1 ? "active" : ""}
             >
+              <MdOutlineDashboard /> Dashboard
+            </div>
+
+            <div
+            // onClick={() => setDisplay(1)}
+            // className={dispaly === 1 ? "active" : ""}
+            >
+              <Link className="report" to="/report">
               <MdOutlineReportGmailerrorred /> Report Missing Person
+              </Link>
             </div>
             <div>
               <CgSearchFound /> Founded Missing Person

@@ -9,9 +9,9 @@ const Header = () => {
       <div className="header_left">
         <Link to="/">
           <div className="circle">
-            <img src="images.png" alt="" />
+            {/* <img src="images.png" alt="" /> */}
           </div>
-          <p>Finder</p>
+          <p>FiNDER</p>
         </Link>
         <div className="search">
           <BiSearchAlt />
@@ -25,7 +25,7 @@ const Header = () => {
         <Link to="/">
           <p>Feed</p>
         </Link>
-        <Link to="/">
+        <Link classname="report" to="/report">
           <p>Report Missing Person</p>
         </Link>
         <Link to="/profile">
