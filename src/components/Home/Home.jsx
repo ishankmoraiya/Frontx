@@ -10,12 +10,12 @@ const Home = () => {
       <Header />
       <div className="home">
         <div className="container">
-          {/* <div className="image">
+          <div className="image">
             <img
-            src=""
+            src="/missing.jpg"
               alt=""
             />
-          </div> */}
+          </div>
           <div className="text">
             <h2>Find your Loving One and Report a missing Person.</h2>
             <p>

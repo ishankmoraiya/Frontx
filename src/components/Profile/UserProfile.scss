@@ -1,6 +1,6 @@
 .p {
     display: grid;
-    grid-template-columns: 1fr 3.5fr;
+    // grid-template-columns: 1fr 3.5fr;
 
     .sidebar {
         background-color: rgb(247, 247, 247);
@@ -8,13 +8,28 @@
         border-right: 1px solid rgb(214, 217, 220);
         .upper {
             display: flex;
-            padding: 6.5px;
+            padding: 0.4rem 0;
+            gap: 10px;
             padding-left: 1rem;
             align-items: center;
-            font-size: 2.1rem;
+            font-size: 2rem;
             font-weight: bold;
             color: #ff5c35;
             border-bottom: 1px solid rgb(214, 217, 220);
+            svg {
+                cursor: pointer;
+                background-color: rgba(235, 234, 234, 0.596);
+                border-radius: 50%;
+                padding: 3px;
+                // &:hover{
+                //     background-color: rgba(235, 234, 234, 0.596);
+                //     border-radius: 50%;
+                // }
+            }
+        }
+        .upper1{
+            padding: 0.65rem 0;
+            padding-left: 1rem;
         }
         .lower {
             display: flex;
@@ -69,10 +84,10 @@
 
             .p_head_left {
                 font-weight: bold;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
 
                 &::first-letter {
-                    font-size: 1.7rem;
+                    font-size: 2rem;
                     color: #ff5c35;
                 }
             }

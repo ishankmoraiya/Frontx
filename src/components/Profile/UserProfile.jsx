@@ -7,8 +7,14 @@ import {
   MdNotifications,
   MdOutlineDashboard,
   MdOutlineReportGmailerrorred,
+  MdSwitchAccount,
 } from "react-icons/md";
-import { CgSearchFound, CgNotes } from "react-icons/cg";
+import {
+  CgSearchFound,
+  CgNotes,
+  CgMenuLeftAlt,
+  CgMenuRightAlt,
+} from "react-icons/cg";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiEdit2, FiLogOut } from "react-icons/fi";
 import ReportMenu from "./ReportMenu";
@@ -16,45 +22,107 @@ import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [show, setShow] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
   const [visible, setVisible] = useState(0);
   const [dispaly, setDisplay] = useState(0);
   return (
     <>
-      <div className="p">
+      <div
+        className="p"
+        style={{
+          gridTemplateColumns: !showSidebar ? "0.2fr 3.5fr" : "1fr 3.5fr",
+        }}
+      >
         <div className="sidebar">
-          <div className="upper">FiNDER</div>
-          <div className="lower">
-            <div
-              onClick={() => setDisplay(0)}
-              className={dispaly === 0 ? "active" : ""}
-            >
-              <CgNotes /> Submit Report
-            </div>
-            <div
-              onClick={() => setDisplay(1)}
-              className={dispaly === 1 ? "active" : ""}
-            >
-              <MdOutlineDashboard /> Dashboard
-            </div>
-
-            <div
-            // onClick={() => setDisplay(1)}
-            // className={dispaly === 1 ? "active" : ""}
-            >
-              <Link className="report" to="/report">
-              <MdOutlineReportGmailerrorred /> Report Missing Person
-              </Link>
-            </div>
-            <div>
-              <CgSearchFound /> Founded Missing Person
-            </div>
-            <div>
-              <MdCallMade /> All Reports
-            </div>
-            <div>
-              <MdNotifications /> Notifications
-            </div>
+          <div className={showSidebar ? "upper" : "upper upper1"}>
+            {/* <HiMenuAlt1 onClick={() => setShowSidebar((prev) => !prev)} /> */}
+            {showSidebar ? (
+              <CgMenuLeftAlt onClick={() => setShowSidebar(false)} />
+            ) : (
+              <CgMenuRightAlt onClick={() => setShowSidebar(true)} />
+            )}
+            {showSidebar && <Link to="/">FiNDER</Link>}
           </div>
+          {!showSidebar && (
+            <div className="lower lower1">
+              <div
+                onClick={() => setDisplay(1)}
+                className={dispaly === 1 ? "active" : ""}
+              >
+                <CgNotes />
+              </div>
+              <div
+              // onClick={() => setDisplay(1)}
+              // className={dispaly === 1 ? "active" : ""}
+              >
+                <MdOutlineDashboard />
+              </div>
+              <div
+                onClick={() => setDisplay(0)}
+                className={dispaly === 0 ? "active" : ""}
+              >
+                <MdSwitchAccount />
+              </div>
+
+              <div
+              // onClick={() => setDisplay(1)}
+              // className={dispaly === 1 ? "active" : ""}
+              >
+                <Link className="report" to="/report">
+                  <MdOutlineReportGmailerrorred />
+                </Link>
+              </div>
+              <div>
+                <CgSearchFound />
+              </div>
+              <div>
+                <MdCallMade />
+              </div>
+              <div>
+                <MdNotifications />
+              </div>
+            </div>
+          )}
+          {showSidebar && (
+            <div className="lower">
+              <div
+                onClick={() => setDisplay(1)}
+                className={dispaly === 1 ? "active" : ""}
+              >
+                <CgNotes /> Submit Report
+              </div>
+              <div
+              // onClick={() => setDisplay(1)}
+              // className={dispaly === 1 ? "active" : ""}
+              >
+                <MdOutlineDashboard /> Dashboard
+              </div>
+              <div
+                onClick={() => setDisplay(0)}
+                className={dispaly === 0 ? "active" : ""}
+              >
+                <MdSwitchAccount /> Profile
+              </div>
+
+              <div
+              // onClick={() => setDisplay(1)}
+              // className={dispaly === 1 ? "active" : ""}
+              >
+                <Link className="report" to="/report">
+                  <MdOutlineReportGmailerrorred /> Report Missing Person
+                </Link>
+              </div>
+              <div>
+                <CgSearchFound /> Founded Missing Person
+              </div>
+              <div>
+                <MdCallMade /> All Reports
+              </div>
+              <div>
+                <MdNotifications /> Notifications
+              </div>
+            </div>
+          )}
         </div>
         <div className="p_top scroll1">
           <div className="p_head">
