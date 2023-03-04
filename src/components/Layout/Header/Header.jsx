@@ -11,7 +11,7 @@ const Header = () => {
           <div className="circle">
             {/* <img src="images.png" alt="" /> */}
           </div>
-          <p>FiNDER</p>
+          <p className="upper">FiNDER</p>
         </Link>
         <div className="search">
           <BiSearchAlt />
