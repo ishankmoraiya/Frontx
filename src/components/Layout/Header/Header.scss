@@ -1,7 +1,7 @@
 header {
   position: fixed;
   top: 0;
-  height: 80px;
+  height: 70px;
   z-index: 99;
   background: var(--bg-primary);
   width: 100%;
@@ -9,14 +9,14 @@ header {
   display: grid;
   grid-template-columns: 2fr 2fr;
   color: var(--color-primary);
-  padding: 20px 20px;
+  padding: 8px 20px;
 
   .header_left {
-    margin-left: 10px;
+    margin-left: 5px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 25px;
+    gap: 20px;
      .upper {
             display: flex;
             padding: 6.5px;
