@@ -4,29 +4,30 @@
         height: 100vh;
         display: flex;
         justify-content: space-between;
-        gap: 30px;
+        gap: 50px;
         align-items: flex-start;
         padding: 2rem;
         padding-top: 9rem;
 
         .image {
             img {
-                border-radius: 10px;
-                border: 1px solid lightslategrey;
-                margin-left: 2rem;
-                width: 15rem;
+                // border-radius: 10px;
+                // border: 1px solid lightslategrey;
+                margin-left: 2rem;   
+                width: 13.6rem;
                 animation: imgAnimate 1s ease-in-out infinite alternate;
             }
 
-            @keyframes imgAnimate {
-                to {
-                    transform: translateY(-10px);
-                }
-            }
+            // @keyframes imgAnimate {
+            //     to {
+            //         transform: translateY(-10px);
+            //     }
+            // }
         }
         .text {
             display: flex;
             flex-wrap: wrap;
+            margin-top: 3px;
             flex-direction: column;
 
             h2 {
