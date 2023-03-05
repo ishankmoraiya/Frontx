@@ -108,12 +108,12 @@ const UserProfile = () => {
               // onClick={() => setDisplay(1)}
               // className={dispaly === 1 ? "active" : ""}
               >
-                <Link className="report" to="/report">
+                <Link to="/missingreport">
                   <MdOutlineReportGmailerrorred /> Report Missing Person
                 </Link>
               </div>
               <div>
-                <CgSearchFound /> Founded Missing Person
+                <Link to="/foundmissing"><CgSearchFound /> Founded Missing Person</Link>
               </div>
               <div>
                 <MdCallMade /> All Reports
