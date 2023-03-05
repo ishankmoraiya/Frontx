@@ -23,7 +23,7 @@ const Header = () => {
         <Link to="/">
           <p>Feed</p>
         </Link>
-        <Link to="/report">
+        <Link to="/missingreport">
           <p>Report Missing Person</p>
         </Link>
         <Link to="/profile">

@@ -22,7 +22,7 @@ function Report() {
               <option value="age">Name</option>
               <option value="age">Age</option>
             </select>
-            <input type="search" name="search" id="" />
+            <input type="search" name="search" id="" placeholder="Search Missing Person" />
             <BiSearchAlt />
           </div>
         </div>
@@ -131,9 +131,21 @@ function Report() {
 
               <p>Upload Image</p>
               <input type="file" name="image" id="" multiple />
+
+              <div className="btn">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+              </div>
             </form>
           </div>
-          <div>search</div>
+          <div className="serch_div">
+            <h2>Search Missing Person</h2>
+              
+            <div className="search_btn">
+              <input type="search" name="search" id="" placeholder="Search by Name"/>
+              <BiSearchAlt />
+            </div>
+          </div>
         </div>
       </div>
     </div>

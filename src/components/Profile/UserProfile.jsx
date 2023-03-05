@@ -73,7 +73,7 @@ const UserProfile = () => {
                 </Link>
               </div>
               <div>
-                <CgSearchFound />
+                <Link to="/foundmissing"><CgSearchFound /></Link>
               </div>
               <div>
                 <MdCallMade />
