@@ -6,6 +6,7 @@ import Register from "./components/Login/Register";
 import Login from "./components/Login/Login";
 import UserProfile from "./components/Profile/UserProfile";
 import MissingReport from "./components/Report/MissingReport";
+import FoundMissing from "./components/Report/FoundMissing";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/missingreport" element={<MissingReport />} />
+        <Route path="/foundmissing" element={<FoundMissing />} />
       </Routes>
     </Router>
   );
