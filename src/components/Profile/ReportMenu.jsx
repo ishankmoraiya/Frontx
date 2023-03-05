@@ -14,16 +14,15 @@ const ReportMenu = () => {
               alt=""
             />
             <p>
-              Here you can Register your Complaint/Report of Missing Person.
               Citizen can very easliy submit their report of missing person by
               filling the form. Basic information of missing person is required
-              to submit the report like Name, Relative name,
-              address, gender Age (or age range), Incident details, Incident
-              Place, Date and time of Incident of missing person are required at
-              the time of registration. A recent picture of missing person is
-              required to for it's identification.
+              to submit the report like Name, Relative name, address, gender Age
+              (or age range), Incident details, Incident Place, Date and time of
+              Incident of missing person are required at the time of
+              registration. A recent picture of missing person is required to
+              for it's identification.
             </p>
-            <Link className="more">
+            <Link to="/missingreport" className="more">
               <p style={{ color: "red" }}>Report Missing Person</p>
             </Link>
           </div>
@@ -34,16 +33,15 @@ const ReportMenu = () => {
               alt=""
             />
             <p>
-              Here you can Register your Complaint/Report that you have found a
-              Missing Person. If you found any person who is missing then you
-              can submit the report of found person. Submit your report only if
-              you found the missing/lost person. If the lost Person can speak
-              and knows where he live's and from where he/she got Missing, you
-              can fill these details also so that our team can easliy found
-              their parents or relatives. A recent picture of missing person is
-              required to for it's identification.
+              If you found any person who is missing then you can submit the
+              report of found person. Submit your report only if you found the
+              missing/lost person. If the lost Person can speak and knows where
+              he live's and from where he/she got Missing, you can fill these
+              details also so that our team can easliy found their parents or
+              relatives. A recent picture of missing person is required to for
+              it's identification.
             </p>
-            <Link className="more">
+            <Link to="/foundmissing" className="more">
               <p style={{ color: "green" }}>Found Missing Person</p>
             </Link>
           </div>

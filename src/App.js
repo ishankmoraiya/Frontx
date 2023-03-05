@@ -5,7 +5,7 @@ import Home from "./components/Home/Home";
 import Register from "./components/Login/Register";
 import Login from "./components/Login/Login";
 import UserProfile from "./components/Profile/UserProfile";
-import Report from "./components/Report/Report"
+import MissingReport from "./components/Report/MissingReport";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/report" element={<Report />} />
+        <Route path="/missingreport" element={<MissingReport />} />
       </Routes>
     </Router>
   );

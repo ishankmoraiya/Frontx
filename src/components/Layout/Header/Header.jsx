@@ -8,9 +8,7 @@ const Header = () => {
     <header>
       <div className="header_left">
         <Link to="/">
-          <div className="circle">
-            {/* <img src="images.png" alt="" /> */}
-          </div>
+          <div className="circle">{/* <img src="images.png" alt="" /> */}</div>
           <p className="upper">FiNDER</p>
         </Link>
         <div className="search">
@@ -25,7 +23,7 @@ const Header = () => {
         <Link to="/">
           <p>Feed</p>
         </Link>
-        <Link classname="report" to="/report">
+        <Link to="/report">
           <p>Report Missing Person</p>
         </Link>
         <Link to="/profile">
