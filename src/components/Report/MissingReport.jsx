@@ -11,7 +11,7 @@ function Report() {
       <Header />
       <div className="report">
         <div className="report_head">
-          <h1>Register Missing Person Report</h1>
+          <h1>Register Lost Person Report</h1>
           <p>
             Register your complaint here. Please fill out the form below and we
             will try our best to help you as soon as possible.
@@ -22,28 +22,34 @@ function Report() {
               <option value="age">Name</option>
               <option value="age">Age</option>
             </select>
-            <input type="search" name="search" id="" placeholder="Search Missing Person" />
+            <input
+              type="search"
+              name="search"
+              id=""
+              placeholder="Search Missing Person"
+            />
             <BiSearchAlt />
           </div>
         </div>
         <div className="fill_form">
           <div className="form_div">
-            <h2>Fill The Basic Details</h2>
+            <h2>Fill The Basic Details of Lost Person</h2>
 
             <form action="">
-              <p>Name of lost person</p>
-              <input type="text" name="name" id="" />
+              <p>Full Name</p>
+              <input type="text" name="name" id="" required />
 
-              <p>Age of the Person</p>
-              <input type="text" name="age" id="" />
+              <p>Age</p>
+              <input type="text" name="age" id="" required />
 
               <div className="place_1">
                 <div className="gender">
-                  <p>Gender of Person</p>
+                  <p>Gender</p>
                   <div className="gender_input">
                     <select
                       name="gender"
                       id="gender"
+                      required
                       // value={gender}
                       // onChange={(e) => setGender(e.target.value)}
                     >
@@ -67,12 +73,12 @@ function Report() {
                       </span>
                     </span>
                   </div>
-                  <input type="number" name="mobile" id="" />
+                  <input type="number" name="mobile" id="" required />
                 </div>
 
                 <div className="adhaar">
                   <div className="tool">
-                    <p>Addhar Number of Person</p>
+                    <p>Addhar Number</p>
                     <span className="tooltip">
                       <AiOutlineExclamationCircle />
                       <span>
@@ -82,55 +88,61 @@ function Report() {
                       </span>
                     </span>
                   </div>
-                  <input type="number" name="adhar" id="" />
+                  <input type="number" name="adhar" id="" required />
                 </div>
 
                 <div className="height">
-                  <p>Height of Person</p>
-                  <input type="text" name="height" id="" />
+                  <p>Height</p>
+                  <input type="text" name="height" id="" required />
                 </div>
               </div>
 
-              <p>Address of Person</p>
-              <input type="text" name="address" id="" />
+              <p>Address</p>
+              <input type="text" name="address" id="" required />
 
               <div className="place_2">
                 <div>
-                  <p>State of Person</p>
-                  <input type="text" name="state" id="" />
+                  <p>State</p>
+                  <input type="text" name="state" id="" required />
                 </div>
 
                 <div>
-                  <p>City of Person</p>
-                  <input type="text" name="city" id="" />
+                  <p>City</p>
+                  <input type="text" name="city" id="" required />
                 </div>
 
                 <div>
                   <p>PinCode</p>
-                  <input type="text" name="city" id="" />
+                  <input type="text" name="city" id="" required />
                 </div>
               </div>
 
               <p>Incident Place(Place from where he lost)</p>
-              <input type="text" name="place" id="" />
+              <input type="text" name="place" id="" required />
 
               <div className="place_3">
                 <div className="date">
                   <p>Incident Date</p>
-                  <input type="date" name="date" id="" />
+                  <input type="date" name="date" id="" required />
                 </div>
 
                 <div className="time">
                   <p>Incident Time</p>
-                  <input type="time" name="time" id="" />
+                  <input type="time" name="time" id="" required />
                 </div>
               </div>
 
               <p>Incident Description</p>
-              <textarea name="description" id="" cols="30" rows="10"></textarea>
+              <textarea
+                name="description"
+                id=""
+                cols="30"
+                rows="10"
+                required
+              ></textarea>
 
               <p>Upload Image</p>
-              <input type="file" name="image" id="" multiple />
+              <input type="file" name="image" id="" multiple required />
 
               <div className="btn">
                 <button type="submit">Submit</button>
@@ -139,10 +151,15 @@ function Report() {
             </form>
           </div>
           <div className="serch_div">
-            <h2>Search Missing Person</h2>
-              
+            <h2>Search Lost Person</h2>
+
             <div className="search_btn">
-              <input type="search" name="search" id="" placeholder="Search by Name"/>
+              <input
+                type="search"
+                name="search"
+                id=""
+                placeholder="Search by Name"
+              />
               <BiSearchAlt />
             </div>
           </div>
