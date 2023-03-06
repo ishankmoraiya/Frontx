@@ -14,7 +14,7 @@ const ReportMenu = () => {
               alt=""
             />
             <Link to="/missingreport" className="more">
-              <p style={{ color: "red" }}>Report Missing Person</p>
+              <p style={{ color: "red" }}>Report Lost Person</p>
             </Link>
             <p>
               Citizen can very easliy submit their report of missing person by
@@ -36,7 +36,7 @@ const ReportMenu = () => {
               alt=""
             />
             <Link to="/foundmissing" className="more">
-              <p style={{ color: "green" }}>Found Missing Person</p>
+              <p style={{ color: "green" }}>Found Lost Person</p>
             </Link>
             <p>
               If you found any person who is missing then you can submit the
