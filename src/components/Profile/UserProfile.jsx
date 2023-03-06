@@ -24,7 +24,7 @@ const UserProfile = () => {
   const [show, setShow] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
   const [visible, setVisible] = useState(0);
-  const [dispaly, setDisplay] = useState(0);
+  const [dispaly, setDisplay] = useState(1);
   return (
     <>
       <div
@@ -68,7 +68,7 @@ const UserProfile = () => {
               // onClick={() => setDisplay(1)}
               // className={dispaly === 1 ? "active" : ""}
               >
-                <Link className="report" to="/report">
+                <Link to="/missingreport">
                   <MdOutlineReportGmailerrorred />
                 </Link>
               </div>
@@ -109,11 +109,11 @@ const UserProfile = () => {
               // className={dispaly === 1 ? "active" : ""}
               >
                 <Link to="/missingreport">
-                  <MdOutlineReportGmailerrorred /> Report Missing Person
+                  <MdOutlineReportGmailerrorred /> Report Lost Person
                 </Link>
               </div>
               <div>
-                <Link to="/foundmissing"><CgSearchFound /> Founded Missing Person</Link>
+                <Link to="/foundmissing"><CgSearchFound /> Found Lost Person</Link>
               </div>
               <div>
                 <MdCallMade /> All Reports
