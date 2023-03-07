@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import Header from "../Layout/Header/Header";
 import "./FoundMissing.scss";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
-
+import { MdOutlineReportProblem } from "react-icons/md";
 
 const FoundMissing = () => {
   const genderValue = ["Specify Gender", "Male", "Female", "Custom"];
+  const [display, setDisplay] = useState(0);
+  const [checked, setChecked] = useState(false);
 
   return (
     <div>
@@ -34,124 +36,304 @@ const FoundMissing = () => {
           </div>
         </div>
         <div className="fill_form">
-        <div className="form_div">
-            <h2>Fill The Basic Details of Found Person</h2>
+          {display === 0 && (
+            <div className="form_div">
+              <div className="section">
+                <h2 className="attention">
+                  <MdOutlineReportProblem /> Attention
+                </h2>
+                <p>
+                  If you have found a Lost/Missing person, you have to provide
+                  all the basic details of the person. Also you have to provide
+                  all the information of yourself which is being asked in the
+                  form so that we can contact you in case of any emergency. So
+                  that we can help you in finding the Lost person.
+                </p>
+                <p className="para_m">
+                  As per the Indian Law, you have to provide all the details of
+                  the person you have found along with yourself which is being
+                  asked.
+                </p>
 
-            <form action="">
-              <p>Full Name(If you Know)</p>
-              <input type="text" name="name" id="" required />
-
-              <p>Age</p>
-              <input type="text" name="age" id="" required />
-
-              <div className="place_1">
-                <div className="gender">
-                  <p>Gender</p>
-                  <div className="gender_input">
-                    <select
-                      name="gender"
-                      id="gender"
-                      required
-                      // value={gender}
-                      // onChange={(e) => setGender(e.target.value)}
+                <div className="aggre">
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    onChange={(e) => {
+                      setChecked(e.target.checked);
+                      // setDisplay(1);
+                    }}
+                  />
+                  <span>
+                    I agree to the terms and conditions as mentioned above.
+                  </span>
+                </div>
+                <div className="button">
+                  {!checked && (
+                    <button className="btn-disabled" type="button">
+                      Proceed to fill the form
+                    </button>
+                  )}
+                  {checked && (
+                    <button
+                      className="btn"
+                      type="button"
+                      onClick={() => setDisplay(1)}
                     >
-                      {genderValue.map((value, index) => (
-                        <option key={index} value={value}>
-                          {value}
-                        </option>
-                      ))}
-                    </select>
+                      Proceed to fill the form
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+          {display === 1 && (
+            <div className="form_div">
+              <h2>Fill The Basic Details of Found Person</h2>
+
+              <form action="">
+                <p>Full Name(If he/she tells You)</p>
+                <input type="text" name="name" id="" placeholder="Full Name" />
+
+                <p>Age(Approx Age)</p>
+                <input
+                  type="text"
+                  name="age"
+                  id=""
+                  placeholder="For eg:15-16 years"
+                  required
+                />
+
+                <div className="place_1">
+                  <div className="gender">
+                    <p>Gender</p>
+                    <div style={{ width: "100%" }} className="gender_input">
+                      <select
+                        name="gender"
+                        id="gender"
+                        required
+                        style={{ width: "100%" }}
+                        // value={gender}
+                        // onChange={(e) => setGender(e.target.value)}
+                      >
+                        {genderValue.map((value, index) => (
+                          <option
+                            key={index}
+                            value={value}
+                            onChange={(e) => e.target.value}
+                          >
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="height">
+                    <p>Height</p>
+                    <input
+                      type="text"
+                      name="height"
+                      id=""
+                      placeholder="Height"
+                      required
+                    />
                   </div>
                 </div>
 
-                <div className="mobile">
-                  <div className="tool">
-                    <p>Your Mobile Number</p>
-                    <span className="tooltip">
-                      <AiOutlineExclamationCircle />
-                      <span>
-                        Please enter a valid mobile number. So we can contact
-                        you in case of any emergency.
+                <p>Address Where you Found</p>
+                <input
+                  type="text"
+                  name="address"
+                  id=""
+                  placeholder="Place where you first see that person"
+                  required
+                />
+
+                <div className="place_2">
+                  <div>
+                    <p>State</p>
+                    <input
+                      type="text"
+                      name="state"
+                      id=""
+                      placeholder="State"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <p>City</p>
+                    <input
+                      type="text"
+                      name="city"
+                      id=""
+                      placeholder="City"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <p>PinCode</p>
+                    <input
+                      type="text"
+                      name="city"
+                      id=""
+                      placeholder="PinCode"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <p>Landmark (Place from where you Found)</p>
+                <input
+                  type="text"
+                  name="place"
+                  id=""
+                  placeholder="LankMark of that place"
+                  required
+                />
+
+                <div className="place_3">
+                  <div className="date">
+                    <p>Date when you have found that person</p>
+                    <input type="date" name="date" id="" required />
+                  </div>
+
+                  <div className="time">
+                    <p>Time when you have found that person</p>
+                    <input type="time" name="time" id="" required />
+                  </div>
+                </div>
+
+                <p>Description</p>
+                <textarea
+                  name="description"
+                  id=""
+                  cols="30"
+                  rows="10"
+                  required
+                  placeholder="When you have found that person, what was he/she doing, what was he/she wearing, what was he/she looking like, what was he/she saying, who have first seen that person etc."
+                ></textarea>
+
+                <p>Upload Image of Found Person</p>
+                <input type="file" name="image" id="" multiple required />
+
+                <div className="btn">
+                  <button
+                    style={{ width: "100%" }}
+                    type="submit"
+                    onClick={() => setDisplay(2)}
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
+          {display === 2 && (
+            <div className="form_div">
+              <h2>Details of Person Registering Complaint</h2>
+
+              <form action="">
+                <p>Full Name</p>
+                <input
+                  type="text"
+                  name="name"
+                  id=""
+                  placeholder="Full Name"
+                  required
+                />
+
+                <div className="place_1">
+                  <div className="mobile">
+                    <div className="tool">
+                      <p>Your Mobile Number</p>
+                      <span className="tooltip">
+                        <AiOutlineExclamationCircle />
+                        <span>
+                          Please enter a valid mobile number. So we can contact
+                          you in case of any emergency.
+                        </span>
                       </span>
-                    </span>
+                    </div>
+                    <input
+                      type="number"
+                      name="mobile"
+                      placeholder="Your Mobile Number"
+                      id=""
+                      required
+                    />
                   </div>
-                  <input type="number" name="mobile" id="" required />
-                </div>
-{/* 
-                <div className="adhaar">
-                  <div className="tool">
-                    <p>Addhar Number</p>
-                    <span className="tooltip">
-                      <AiOutlineExclamationCircle />
-                      <span>
-                        Please enter adhaar number of the person. We care about
-                        your Privacy and we will not share your details with
-                        anyone. This is for the searching missing Person.
+
+                  <div className="adhaar">
+                    <div className="tool">
+                      <p>Addhar Number</p>
+                      <span className="tooltip">
+                        <AiOutlineExclamationCircle />
+                        <span>
+                          Please enter adhaar number of the person. We care
+                          about your Privacy and we will not share your details
+                          with anyone. This is for the searching missing Person.
+                        </span>
                       </span>
-                    </span>
+                    </div>
+                    <input type="number" name="adhar" id="" required />
                   </div>
-                  <input type="number" name="adhar" id="" required />
-                </div> */}
-
-                <div className="height">
-                  <p>Height</p>
-                  <input type="text" name="height" id="" required />
-                </div>
-              </div>
-
-              <p>Address Where you Found</p>
-              <input type="text" name="address" id="" required />
-
-              <div className="place_2">
-                <div>
-                  <p>State</p>
-                  <input type="text" name="state" id="" required />
                 </div>
 
-                <div>
-                  <p>City</p>
-                  <input type="text" name="city" id="" required />
+                <p>Address Where you Found</p>
+                <input
+                  type="text"
+                  name="address"
+                  id=""
+                  placeholder="Your Address"
+                  required
+                />
+
+                <div className="place_2">
+                  <div>
+                    <p>State</p>
+                    <input
+                      type="text"
+                      name="state"
+                      id=""
+                      placeholder="Your State"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <p>City</p>
+                    <input
+                      type="text"
+                      name="city"
+                      id=""
+                      placeholder="Your City"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <p>PinCode</p>
+                    <input
+                      type="text"
+                      name="city"
+                      id=""
+                      placeholder="Your Area PinCode"
+                      required
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <p>PinCode</p>
-                  <input type="text" name="city" id="" required />
+                <div className="btn">
+                  <button type="submit">Submit</button>
+                  <button type="reset">Reset</button>
                 </div>
-              </div>
-
-              <p>Landmark (Place from where you Found)</p>
-              <input type="text" name="place" id="" required />
-
-              <div className="place_3">
-                <div className="date">
-                  <p>Incident Date</p>
-                  <input type="date" name="date" id="" required />
-                </div>
-
-                <div className="time">
-                  <p>Incident Time</p>
-                  <input type="time" name="time" id="" required />
-                </div>
-              </div>
-
-              <p>Incident Description</p>
-              <textarea
-                name="description"
-                id=""
-                cols="30"
-                rows="10"
-                required
-              ></textarea>
-
-              <p>Upload Image of Found Person</p>
-              <input type="file" name="image" id="" multiple required />
-
-              <div className="btn">
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
+          )}
           <div className="serch_div">
             <h2>Search Found Person</h2>
 
@@ -165,8 +347,6 @@ const FoundMissing = () => {
               <BiSearchAlt />
             </div>
           </div>
-       
-
         </div>
       </div>
     </div>
