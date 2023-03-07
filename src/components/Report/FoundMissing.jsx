@@ -70,17 +70,16 @@ const FoundMissing = () => {
                   </span>
                 </div>
                 <div className="button">
-                  {!checked && (
-                    <button className="btn-disabled" type="button">
-                      Proceed to fill the form
-                    </button>
-                  )}
-                  {checked && (
+                  {checked ? (
                     <button
                       className="btn"
                       type="button"
                       onClick={() => setDisplay(1)}
                     >
+                      Proceed to fill the form
+                    </button>
+                  ) : (
+                    <button className="btn-disabled" type="button">
                       Proceed to fill the form
                     </button>
                   )}
@@ -221,13 +220,10 @@ const FoundMissing = () => {
                 <input type="file" name="image" id="" multiple required />
 
                 <div className="btn">
-                  <button
-                    style={{ width: "100%" }}
-                    type="submit"
-                    onClick={() => setDisplay(2)}
-                  >
-                    Next
+                  <button type="submit" onClick={() => setDisplay(2)}>
+                    Submit
                   </button>
+                  <button type="reset">Cancel</button>
                 </div>
               </form>
             </div>
@@ -279,7 +275,13 @@ const FoundMissing = () => {
                         </span>
                       </span>
                     </div>
-                    <input type="number" name="adhar" id="" required />
+                    <input
+                      type="number"
+                      name="adhar"
+                      id=""
+                      placeholder="XXXX-XXXX-XXXX"
+                      required
+                    />
                   </div>
                 </div>
 
