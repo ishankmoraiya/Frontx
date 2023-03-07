@@ -54,7 +54,11 @@ function Report() {
                       // onChange={(e) => setGender(e.target.value)}
                     >
                       {genderValue.map((value, index) => (
-                        <option key={index} value={value}>
+                        <option
+                          key={index}
+                          value={value}
+                          onChange={(e) => e.target.value}
+                        >
                           {value}
                         </option>
                       ))}
