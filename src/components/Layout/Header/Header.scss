@@ -16,36 +16,21 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
-     .upper {
-            display: flex;
-            padding: 6.5px;
-            padding-left: 1rem;
-            align-items: center;
-            font-size: 1.9rem;
-            font-weight: bold;
-            color: #ff5c35;
-            // border-bottom: 1px solid rgb(214, 217, 220);
-        }
+    gap: 10px;
 
     a {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      .circle {
-        img {
-          width: 52px;
-          height: 33px;
-          border-radius: 50%;
-        }
+      .upper {
+        display: flex;
+        padding: 6.5px;
+        align-items: center;
+        font-size: 1.9rem;
+        font-weight: bold;
+        color: #ff5c35;
       }
-      p {
-        font-size: 1.7rem;
-        font-weight: 600;
-        color: #2e475d;
-      }
-      
     }
 
     .search {
@@ -55,11 +40,11 @@ header {
       padding: 10px;
       border-radius: 50px;
       cursor: text;
+      width: 50%;
 
       svg {
         color: var(--color-secondary);
         font-size: 1.2rem;
-        // transform: translateY(1px);
       }
 
       input {
@@ -68,6 +53,7 @@ header {
         border: none;
         background: transparent;
         font-size: 15px;
+        width: 100%;
       }
     }
   }

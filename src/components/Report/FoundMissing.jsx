@@ -221,7 +221,7 @@ const FoundMissing = () => {
 
                 <div className="btn">
                   <button type="submit" onClick={() => setDisplay(2)}>
-                    Submit
+                    Next
                   </button>
                   <button type="reset">Cancel</button>
                 </div>
@@ -269,9 +269,9 @@ const FoundMissing = () => {
                       <span className="tooltip">
                         <AiOutlineExclamationCircle />
                         <span>
-                          Please enter adhaar number of the person. We care
+                          Please enter adhaar number of yourself. We care
                           about your Privacy and we will not share your details
-                          with anyone. This is for the searching missing Person.
+                          with anyone. This is for verification purpose.
                         </span>
                       </span>
                     </div>
@@ -285,7 +285,7 @@ const FoundMissing = () => {
                   </div>
                 </div>
 
-                <p>Address Where you Found</p>
+                <p>Address</p>
                 <input
                   type="text"
                   name="address"
