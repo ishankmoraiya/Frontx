@@ -47,6 +47,26 @@ const Header = () => {
         <Link to="/profile">
           <p>Profile</p>
         </Link>
+        <i
+          className="fa-solid fa-language"
+          style={{
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            id="google_translate_element"
+            style={{
+              opacity: 0,
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              marginTop: "20%",
+              transform: `translateX(-50%) translateY(-50%)`,
+            }}
+          ></div>
+        </i>
+
         <Link className="login" to="/login">
           <p>LogIn</p>
         </Link>
