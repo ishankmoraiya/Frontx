@@ -89,6 +89,7 @@ export default class Header extends Component {
             style={{
               position: "relative",
               overflow: "hidden",
+              fontSize: "1.5rem",
             }}
           >
             <div
@@ -103,7 +104,6 @@ export default class Header extends Component {
               }}
             ></div>
           </i>
-
           <Link className="login" to="/login">
             <p>LogIn</p>
           </Link>
