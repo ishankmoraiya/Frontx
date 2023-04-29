@@ -19,8 +19,12 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { FiEdit2, FiLogOut } from "react-icons/fi";
 import ReportMenu from "./ReportMenu";
 import { Link } from "react-router-dom";
+import CompleteProfile from "./CompleteProfile";
+import { useSelector } from "react-redux";
 
 const UserProfile = () => {
+  const { user } = useSelector((state) => state.user);
+
   const [show, setShow] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
   const [visible, setVisible] = useState(0);
@@ -73,7 +77,9 @@ const UserProfile = () => {
                 </Link>
               </div>
               <div>
-                <Link to="/foundmissing"><CgSearchFound /></Link>
+                <Link to="/foundmissing">
+                  <CgSearchFound />
+                </Link>
               </div>
               <div>
                 <MdCallMade />
@@ -113,7 +119,9 @@ const UserProfile = () => {
                 </Link>
               </div>
               <div>
-                <Link to="/foundmissing"><CgSearchFound /> Found Lost Person</Link>
+                <Link to="/foundmissing">
+                  <CgSearchFound /> Found Lost Person
+                </Link>
               </div>
               <div>
                 <MdCallMade /> All Reports
@@ -126,14 +134,16 @@ const UserProfile = () => {
         </div>
         <div className="p_top scroll1">
           <div className="p_head">
-            <div className="p_head_left">Rachit's Profile</div>
+            <div className="p_head_left">{user.firstname}'s Profile</div>
             <div className="user_profile_head">
               <div className="svg">
                 <AiOutlineBell />
               </div>
               <div onClick={() => setShow((prev) => !prev)}>
                 <img src="/profile.png" alt="" />
-                <p style={{ color: "green" }}>Rachit Patel</p>
+                <p style={{ color: "green" }}>
+                  {user.firstname} {user.lastname}
+                </p>
                 <RiArrowDownSLine />
               </div>
               {show && (
@@ -152,8 +162,10 @@ const UserProfile = () => {
               <div className="more_d">
                 <div className="more_p">
                   <img src="/profile.png" alt="" />
-                  <h3>Rachit Patel</h3>
-                  <p style={{ color: "lightslategray" }}>User</p>
+                  <h3>
+                    {user.firstname} {user.lastname}
+                  </h3>
+                  <p style={{ color: "lightslategray" }}>{user.username}</p>
                   <div className="more_i">
                     <div>
                       <p>Edit Profile</p>
@@ -185,16 +197,19 @@ const UserProfile = () => {
                   {visible === 0 && (
                     <>
                       <div className="d_head">
-                        <p className="active">Account Details</p>
+                        <p className={visible === 0 ? "active" : ""}>
+                          Account Details
+                        </p>
                         <p onClick={() => setVisible(1)}>More Details</p>
+                        <p className="button" onClick={() => setVisible(2)}>
+                          Complete Profile
+                        </p>
                         <p>Settings</p>
                       </div>
                       <div className="d_body">
                         <div className="details_p">
                           <p className="small">First Name</p>
-                          <div>
-                            <p>Rachit</p>
-                          </div>
+                          <div>{user.firstname && <p>{user.firstname}</p>}</div>
                           <p className="small">Phone Number</p>
                           <div>
                             <p>19000-67845</p>
@@ -214,13 +229,9 @@ const UserProfile = () => {
                         </div>
                         <div className="details_p">
                           <p className="small">Last Name</p>
-                          <div>
-                            <p>Patel</p>
-                          </div>
+                          <div>{user.lastname && <p>{user.lastname}</p>}</div>
                           <p className="small">Email Address</p>
-                          <div>
-                            <p>rachit@gmail.com</p>
-                          </div>
+                          <div>{user.email && <p>{user.email}</p>}</div>
                           <p className="small">Date of Birth</p>
                           <div>
                             <p>18 March 2002</p>
@@ -241,7 +252,14 @@ const UserProfile = () => {
                     <>
                       <div className="d_head">
                         <p onClick={() => setVisible(0)}>Account Details</p>
-                        <p className="active">More Details</p>
+                        <p className={visible === 1 ? "active" : ""}>
+                          More Details
+                        </p>
+
+                        <p className="button" onClick={() => setVisible(2)}>
+                          Complete Profile
+                        </p>
+
                         <p>Settings</p>
                       </div>
                       <div className="d_body">
@@ -251,6 +269,21 @@ const UserProfile = () => {
                             <p>H.no 608, Pragti vihar, Suhagi, Adhartal</p>
                           </div>
                         </div>
+                      </div>
+                    </>
+                  )}
+                  {visible === 2 && (
+                    <>
+                      <div className="d_head">
+                        <p onClick={() => setVisible(0)}>Account Details</p>
+                        <p onClick={() => setVisible(1)}>More Details</p>
+                        <p className={visible === 2 ? "active" : ""}>
+                          Complete Profile
+                        </p>
+                        <p>Settings</p>
+                      </div>
+                      <div>
+                        <CompleteProfile />
                       </div>
                     </>
                   )}
