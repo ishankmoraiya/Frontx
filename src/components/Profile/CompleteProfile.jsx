@@ -19,38 +19,17 @@ const CompleteProfile = () => {
   const [city, setCity] = useState("");
   const [gender, setGender] = useState("");
   const [adhaar, setAdhaar] = useState("");
-  const [byear, setByear] = useState(new Date().getFullYear());
-  const [bmonth, setBmonth] = useState(new Date().getMonth() + 1);
-  const [bday, setBday] = useState(new Date().getDate());
+  const [dob, setDob] = useState("");
   const [checked, setChecked] = useState(false);
+  const genderValue = ["Specify Gender", "Male", "Female", "Custom"];
 
   const dispatch = useDispatch();
-
-  const TempYear = new Date().getFullYear();
-  const years = Array.from(new Array(100), (val, index) => TempYear - index);
-  const month = Array.from(new Array(12), (val, index) => index + 1);
-  const getdate = () => {
-    return new Date(byear, bmonth, 0).getDate();
-  };
-  const date = Array.from(new Array(getdate()), (val, index) => index + 1);
-  const genderValue = ["Specify Gender","Male", "Female", "Custom"];
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     await dispatch(
-      completeprofile(
-        address,
-        phone,
-        state,
-        city,
-        pincode,
-        gender,
-        byear,
-        bmonth,
-        bday,
-        adhaar
-      )
+      completeprofile(address, phone, state, city, pincode, gender, dob, adhaar)
     );
 
     dispatch(loadUser());
@@ -100,7 +79,11 @@ const CompleteProfile = () => {
               onChange={(e) => setGender(e.target.value)}
             >
               {genderValue.map((value, index) => (
-                <option key={index} value={value}>
+                <option
+                  key={index}
+                  value={value}
+                  onChange={(e) => e.target.value}
+                >
                   {value}
                 </option>
               ))}
@@ -145,53 +128,14 @@ const CompleteProfile = () => {
             onChange={(e) => setState(e.target.value)}
           />
           <p className="small">Date of Birth</p>
-          <div className="dob-input">
-            <div className="year">
-              <p className="small">Year</p>
-              <select
-                name="byear"
-                id="byear"
-                value={user.byear ? user.byear : byear}
-                onChange={(e) => setByear(e.target.value)}
-              >
-                {years.map((year, index) => (
-                  <option key={index} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="year">
-              <p className="small">Month</p>
-              <select
-                name="bmonth"
-                id="bmonth"
-                value={user.bmonth ? user.bmonth : bmonth}
-                onChange={(e) => setBmonth(e.target.value)}
-              >
-                {month.map((month, index) => (
-                  <option key={index} value={month}>
-                    {month}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="year">
-              <p className="small">Date</p>
-              <select
-                name="bday"
-                id="bday"
-                value={user.bday ? user.bday : bday}
-                onChange={(e) => setBday(e.target.value)}
-              >
-                {date.map((dates, index) => (
-                  <option key={index} value={dates}>
-                    {dates}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+          <input
+            type="date"
+            name="date"
+            style={{ padding: "0.5rem" }}
+            required
+            value={user.dob ? user.dob : dob}
+            onChange={(e) => setDob(e.target.value)}
+          />
           <p className="small">Country</p>
           <div>India</div>
         </div>
@@ -220,7 +164,6 @@ const CompleteProfile = () => {
               id=""
               onChange={(e) => {
                 setChecked(e.target.checked);
-                // setDisplay(1);
               }}
             />
             <span>Yes! The above information filled is correct.</span>
@@ -228,7 +171,7 @@ const CompleteProfile = () => {
           <div className="button">
             {checked ? (
               <button disabled={loading} className="btn" type="submit">
-                {loading ? <PulseLoader /> : "Submit"}
+                {loading ? <PulseLoader size="10px" color="white" /> : "Submit"}
               </button>
             ) : (
               <button className="btn-disabled" type="button">

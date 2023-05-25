@@ -282,7 +282,7 @@ const UserProfile = () => {
                         </p>
                         <p>Settings</p>
                       </div>
-                      <div>
+                      <div style={{width:"100%"}}>
                         <CompleteProfile />
                       </div>
                     </>
