@@ -64,7 +64,7 @@ export const loadUser = () => async (dispatch) => {
 };
 
 export const completeprofile =
-  (address, phone, state, city, pincode, gender, byear, bmonth, bday, adhaar) =>
+  (address, phone, state, city, pincode, gender, dob, adhaar) =>
   async (dispatch) => {
     try {
       dispatch({ type: "completeProfileRequest" });
@@ -78,9 +78,7 @@ export const completeprofile =
           city,
           pincode,
           gender,
-          byear,
-          bmonth,
-          bday,
+          dob,
           adhaar,
         },
         {

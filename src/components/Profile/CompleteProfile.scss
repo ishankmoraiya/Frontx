@@ -1,6 +1,6 @@
 form {
     overflow: auto;
-    max-height: 65vh;
+    max-height: 67vh;
 }
 .d_body {
     .details_p {
@@ -16,17 +16,6 @@ form {
             }
             &::placeholder {
                 color: rgb(186, 185, 185);
-            }
-        }
-
-        .dob-input {
-            display: flex;
-            border: none;
-            gap: 0.7rem;
-
-            .year {
-                display: flex;
-                gap: 0.7rem;
             }
         }
     }

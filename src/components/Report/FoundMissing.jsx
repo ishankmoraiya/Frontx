@@ -120,7 +120,6 @@ const FoundMissing = () => {
                           <option
                             key={index}
                             value={value}
-                            onChange={(e) => e.target.value}
                           >
                             {value}
                           </option>
