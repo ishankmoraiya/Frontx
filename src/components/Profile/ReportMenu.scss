@@ -1,5 +1,7 @@
 .report_details {
     .report_d {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         .report_inner {
             background-color: white;
             padding: 10px 20px;

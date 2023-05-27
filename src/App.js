@@ -9,8 +9,11 @@ import Login from "./components/Login/Login";
 import UserProfile from "./components/Profile/UserProfile";
 import MissingReport from "./components/Report/MissingReport";
 import FoundMissing from "./components/Report/FoundMissing";
+import AllReports from "./components/Profile/AllReports";
 import { useSelector, useDispatch } from "react-redux";
 import { ProtectedRoute } from "protected-route-react";
+import ReportMenu from "./components/Profile/ReportMenu";
+import ViewReport from "./components/Profile/ViewReport";
 
 function App() {
   const { isAuthenticated, message, error } = useSelector(
@@ -83,6 +86,33 @@ function App() {
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <FoundMissing />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/submitreport"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <ReportMenu />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/allreports"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <AllReports />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/allreports/:id"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <ViewReport />
             </ProtectedRoute>
           }
         />
