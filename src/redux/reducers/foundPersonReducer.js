@@ -1,16 +1,16 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-export const reportPersonReducer = createReducer(
+export const foundPersonReducer = createReducer(
   {},
   {
-    reportPersonRequest: (state) => {
+    foundPersonRequest: (state) => {
       state.loading = true;
     },
-    reportPersonSuccess: (state, action) => {
+    foundPersonSuccess: (state, action) => {
       state.loading = false;
       state.message = action.payload.message;
     },
-    reportPersonFail: (state, action) => {
+    foundPersonFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
@@ -25,51 +25,51 @@ export const reportPersonReducer = createReducer(
   }
 );
 
-export const getAllReportReducer = createReducer(
+export const getAllFoundReportReducer = createReducer(
   {},
   {
-    getAllReportRequest: (state) => {
+    getAllFoundReportRequest: (state) => {
       state.loading = true;
     },
-    getAllReportSuccess: (state, action) => {
+    getAllFoundReportSuccess: (state, action) => {
       state.loading = false;
       state.reports = action.payload.reports;
     },
-    getAllReportFail: (state, action) => {
+    getAllFoundReportFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
   }
 );
 
-export const getReportByIdReducer = createReducer(
+export const getFoundReportByIdReducer = createReducer(
   {},
   {
-    getReportByIdRequest: (state) => {
+    getFoundReportByIdRequest: (state) => {
       state.loading = true;
     },
-    getReportByIdSuccess: (state, action) => {
+    getFoundReportByIdSuccess: (state, action) => {
       state.loading = false;
       state.report = action.payload.report;
     },
-    getReportByIdFail: (state, action) => {
+    getFoundReportByIdFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
   }
 );
 
-export const addMoreImageReducer = createReducer(
+export const addMoreFoundImageReducer = createReducer(
   {},
   {
-    addMoreImageRequest: (state) => {
+    addMoreFoundImageRequest: (state) => {
       state.loading = true;
     },
-    addMoreImageSuccess: (state, action) => {
+    addMoreFoundImageSuccess: (state, action) => {
       state.loading = false;
       state.message = action.payload.message;
     },
-    addMoreImageFail: (state, action) => {
+    addMoreFoundImageFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },

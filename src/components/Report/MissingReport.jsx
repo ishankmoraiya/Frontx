@@ -70,7 +70,7 @@ function Report() {
     myForm.append("file", picture);
 
     await dispatch(reportPerson(myForm));
-    setDisplay(2);
+    setDisplay(0);
   };
 
   useEffect(() => {

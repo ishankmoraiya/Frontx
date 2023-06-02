@@ -1,162 +1,13 @@
 .p {
-    display: grid;
-    // grid-template-columns: 1fr 3.5fr;
-
-    .sidebar {
-        background-color: rgb(247, 247, 247);
-        height: 100vh;
-        border-right: 1px solid rgb(214, 217, 220);
-        .upper {
-            display: flex;
-            padding: 0.4rem 0;
-            gap: 10px;
-            padding-left: 1rem;
-            align-items: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ff5c35;
-            border-bottom: 1px solid rgb(214, 217, 220);
-            svg {
-                cursor: pointer;
-                background-color: rgba(235, 234, 234, 0.596);
-                border-radius: 50%;
-                padding: 3px;
-                // &:hover{
-                //     background-color: rgba(235, 234, 234, 0.596);
-                //     border-radius: 50%;
-                // }
-            }
-        }
-        .upper1 {
-            padding: 0.65rem 0;
-            padding-left: 1rem;
-        }
-        .lower {
-            display: flex;
-            flex-direction: column;
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            font-weight: bold;
-
-            div {
-                svg {
-                    font-size: 1.3rem;
-                }
-                a {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-                display: flex;
-                align-items: center;
-                border-radius: 3px;
-                color: rgba(0, 0, 0, 0.776);
-                margin: 0 7px;
-                margin-bottom: 5px;
-                padding: 10px 15px;
-                gap: 10px;
-
-                &:hover {
-                    background: var(--bg-secondary);
-                    cursor: pointer;
-                }
-            }
-
-            .active {
-                background: #ff5c35;
-                color: white;
-                cursor: pointer;
-
-                &:hover {
-                    background: #ff5c35;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
+    display: flex;
+    flex-direction: row;
 
     .p_top {
         padding-bottom: 1rem;
+        width: 100%;
         height: 100vh;
         overflow: auto;
-        .p_head {
-            padding: 10px;
-            padding-top: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 9.365vh;
-
-            .p_head_left {
-                font-weight: bold;
-                font-size: 1.5rem;
-
-                &::first-letter {
-                    font-size: 2rem;
-                    color: #ff5c35;
-                }
-            }
-
-            .user_profile_head {
-                display: flex;
-                align-items: center;
-                position: relative;
-                gap: 2px;
-
-                .svg {
-                    border-radius: 50%;
-                    padding: 5px;
-                    svg {
-                        font-size: 1.3rem;
-                        color: rgb(90, 92, 94);
-                    }
-                    &:hover {
-                        background: var(--bg-secondary);
-                    }
-                }
-
-                div {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 5px;
-                    border-radius: 20px;
-                    gap: 7px;
-                    img {
-                        width: 35px;
-                        height: 35px;
-                        border-radius: 50%;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-
-                        background: var(--bg-secondary);
-                    }
-                }
-                .dropdown {
-                    position: absolute;
-                    background: white;
-                    right: 10px;
-                    top: 53px;
-                    gap: 5px;
-                    border-radius: 5px;
-                    display: flex;
-                    align-items: center;
-                    margin-top: 5px;
-                    font-weight: bold;
-                    padding: 10px;
-                    color: #002e6e;
-                    font-size: 1rem;
-                    border-radius: 5px;
-                    box-shadow: 0 2px 5px var(--shadow-1), inset 0 0 0 0 var(--shadow-inset);
-
-                    &:hover {
-                        background: var(--bg-secondary);
-                    }
-                }
-            }
-        }
+        
         .back {
             height: 20vh;
             background-image: url("../../../public/back.jpg");
@@ -328,13 +179,6 @@
                         }
                     }
                 }
-            }
-        }
-
-        .report_details {
-            .report_d {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
             }
         }
     }

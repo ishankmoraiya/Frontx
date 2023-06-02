@@ -1,12 +1,30 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { completeProfileReducer, userReducer } from "./reducers/userReducer";
-import { reportPersonReducer } from "./reducers/reportPersonreducer";
+import {
+  addMoreImageReducer,
+  getAllReportReducer,
+  getReportByIdReducer,
+  reportPersonReducer,
+} from "./reducers/reportPersonreducer";
+import {
+  addMoreFoundImageReducer,
+  foundPersonReducer,
+  getAllFoundReportReducer,
+  getFoundReportByIdReducer,
+} from "./reducers/foundPersonReducer";
 
 const store = configureStore({
   reducer: {
     user: userReducer,
     completeInformation: completeProfileReducer,
     reportPerson: reportPersonReducer,
+    allReport: getAllReportReducer,
+    singlereport: getReportByIdReducer,
+    addimage: addMoreImageReducer,
+    foundPerson: foundPersonReducer,
+    allfoundReport: getAllFoundReportReducer,
+    singlefoundReport: getFoundReportByIdReducer,
+    addfoundimages: addMoreFoundImageReducer,
   },
 });
 
