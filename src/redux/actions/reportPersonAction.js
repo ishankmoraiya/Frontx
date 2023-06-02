@@ -66,7 +66,7 @@ export const getReportById = (id) => async (dispatch) => {
   try {
     dispatch({ type: "getReportByIdRequest" });
 
-    const { data } = await axios.get(`${server}/allreports/${id}`, {
+    const { data } = await axios.get(`${server}/singlereport/${id}`, {
       withCredentials: true,
     });
 

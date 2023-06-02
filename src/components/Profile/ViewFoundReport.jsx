@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./ViewReport.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  addMoreImage,
-  getReportById,
-} from "../../redux/actions/reportPersonAction";
 import Sidebar from "./Sidebar";
 import TopHeader from "./TopHeader";
 import { PulseLoader } from "react-spinners";
@@ -19,10 +15,16 @@ import {
   View,
   Image,
 } from "@react-pdf/renderer";
+import {
+  addMoreFoundImage,
+  getFoundReportById,
+} from "../../redux/actions/foundPersonActions";
 
-const ViewReport = () => {
-  const { report } = useSelector((state) => state.singlereport);
-  const { loading, message, error } = useSelector((state) => state.addimage);
+const ViewFoundReport = () => {
+  const { report } = useSelector((state) => state.singlefoundReport);
+  const { loading, message, error } = useSelector(
+    (state) => state.addfoundimages
+  );
   const [picture, setPicture] = useState();
 
   const dispatch = useDispatch();
@@ -43,12 +45,12 @@ const ViewReport = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", picture);
-    await dispatch(addMoreImage(params.id, formData));
+    await dispatch(addMoreFoundImage(params.id, formData));
     setPicture("");
   };
 
   useEffect(() => {
-    dispatch(getReportById(params.id));
+    dispatch(getFoundReportById(params.id));
 
     if (error) {
       toast.error(error);
@@ -145,31 +147,23 @@ const ViewReport = () => {
                 Pincode : {repo?.pincode}
               </Text>
               <Text style={{ fontWeight: "bold", flex: "1" }}>
-                Address : {repo?.address}
+                Landmark : {repo?.landmark}
               </Text>
             </View>
             <View style={styles.section}>
               <Text style={{ fontWeight: "bold", flex: "1" }}>
-                Incident Date : {repo?.incidentDate}
+                Found Date : {repo?.foundDate}
               </Text>
               <Text style={{ fontWeight: "bold", flex: "1" }}>
-                Incident Time : {repo?.incidentTime}
-              </Text>
-            </View>
-            <View style={styles.section}>
-              <Text style={{ fontWeight: "bold", flex: "1" }}>
-                Mobile Number : {repo?.mobileno}
-              </Text>
-              <Text style={{ fontWeight: "bold", flex: "1" }}>
-                Adhaar Number : {repo?.adhaar}
+                Found Time : {repo?.foundTime}
               </Text>
             </View>
             <View style={styles.section}>
               <Text style={{ fontWeight: "bold", flex: "1" }}>
-                Incident Place : {repo?.incidentPlace}
+                Found Place : {repo?.foundPlace}
               </Text>
               <Text style={{ fontWeight: "bold", flex: "1" }}>
-                Incident Description : {repo?.incidentdesc}
+                Found Description : {repo?.founddesc}
               </Text>
             </View>
             <View
@@ -219,7 +213,6 @@ const ViewReport = () => {
       </Page>
     </Document>
   );
-
   return (
     <div className="p">
       <Sidebar page="viewreport" />
@@ -228,11 +221,11 @@ const ViewReport = () => {
         <div className="back"></div>
         <div className="all_report">
           <div className="all_head1">
-            <h2>{report?.fullname} Lost Report</h2>
+            <h2>{report?.fullname} Found Report</h2>
             <div className="download">
               <PDFDownloadLink
                 document={<MyDoc repo={report} />}
-                fileName={`${report?.fullname} Lost Report.pdf`}
+                fileName={`${report?.fullname} Found Report.pdf`}
               >
                 Download Report as PDF
               </PDFDownloadLink>
@@ -276,40 +269,30 @@ const ViewReport = () => {
               </div>
               <div className="grp">
                 <div className="combine">
-                  <p className="small">Address</p>
-                  <div>{report?.address}</div>
+                  <p className="small">Landmark</p>
+                  <div>{report?.landmark}</div>
                 </div>
               </div>
               <div className="grp">
                 <div className="combine">
-                  <p className="small">Incident Date</p>
-                  <div>{report?.incidentDate}</div>
+                  <p className="small">Found Date</p>
+                  <div>{report?.foundDate}</div>
                 </div>
                 <div className="combine">
-                  <p className="small">Incident Time</p>
-                  <div>{report?.incidentTime}</div>
-                </div>
-              </div>
-              <div className="grp">
-                <div className="combine">
-                  <p className="small">Mobile Number</p>
-                  <div>{report?.mobileno}</div>
-                </div>
-                <div className="combine">
-                  <p className="small">Adhaar Number</p>
-                  <div>{report?.adhaar}</div>
+                  <p className="small">Found Time</p>
+                  <div>{report?.foundTime}</div>
                 </div>
               </div>
               <div className="grp">
                 <div className="combine">
-                  <p className="small">Incident Place</p>
-                  <div>{report?.incidentPlace}</div>
+                  <p className="small">Found Place</p>
+                  <div>{report?.foundPlace}</div>
                 </div>
               </div>
               <div className="grp">
                 <div className="combine">
-                  <p className="small">Incident Description</p>
-                  <div>{report?.incidentdesc}</div>
+                  <p className="small">Description of Incident</p>
+                  <div>{report?.founddesc}</div>
                 </div>
               </div>
             </div>
@@ -444,4 +427,4 @@ const ViewReport = () => {
   );
 };
 
-export default ViewReport;
+export default ViewFoundReport;

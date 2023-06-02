@@ -6,6 +6,12 @@ import {
   getReportByIdReducer,
   reportPersonReducer,
 } from "./reducers/reportPersonreducer";
+import {
+  addMoreFoundImageReducer,
+  foundPersonReducer,
+  getAllFoundReportReducer,
+  getFoundReportByIdReducer,
+} from "./reducers/foundPersonReducer";
 
 const store = configureStore({
   reducer: {
@@ -15,6 +21,10 @@ const store = configureStore({
     allReport: getAllReportReducer,
     singlereport: getReportByIdReducer,
     addimage: addMoreImageReducer,
+    foundPerson: foundPersonReducer,
+    allfoundReport: getAllFoundReportReducer,
+    singlefoundReport: getFoundReportByIdReducer,
+    addfoundimages: addMoreFoundImageReducer,
   },
 });
 
